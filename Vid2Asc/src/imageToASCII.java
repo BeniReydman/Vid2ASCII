@@ -57,7 +57,7 @@ public class imageToASCII
 		
 		
 		//System.out.print(superAwesomeAscii);
-		String FILENAME = ".\\output\\orange.txt";
+		String FILENAME = ".\\output\\test.txt";
 		File outputFile = null;
 		try {
 			outputFile = new File(FILENAME);

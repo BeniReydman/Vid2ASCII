@@ -2,5 +2,9 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Beni/Downloads/javacv-platform-1.5.2-bin/javacv.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Beni/Downloads/javacv-platform-1.5.2-bin/javacpp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Beni/Downloads/javacv-platform-1.5.2-bin/ffmpeg-platform.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Beni/Downloads/javacv-platform-1.5.2-bin/ffmpeg-windows-x86_64.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

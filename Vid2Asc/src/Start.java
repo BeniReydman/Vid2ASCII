@@ -1,42 +1,53 @@
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import org.bytedeco.javacv.FFmpegFrameGrabber;
+import org.bytedeco.javacv.Frame;
+import org.bytedeco.javacv.Java2DFrameConverter;
+import org.bytedeco.javacv.FrameGrabber.Exception;
 
 import javax.imageio.ImageIO;
 
 public class Start 
 {
-	ArrayList<File> files = new ArrayList<File>();
+	static ArrayList<File> files = new ArrayList<File>();
+	static ArrayList<BufferedImage> images = new ArrayList<BufferedImage>();
 	
-	public static void main(String[] args)
+	public static void main(String[] args) 
 	{
-		// int cores = Runtime.getRuntime().availableProcessors();
-		// for (int x = 0; x < cores; x++)
-		// {
-		// 	MultiThread object = new MultiThread();
-		// 	object.start();
-		// }
-		AsciiToImage asti = new AsciiToImage();
-		String FILENAME = "C:\\Users\\MagikEh\\Documents\\Vid2ASCII\\Vid2Asc\\output\\orange.txt";
-		File inFile = new File(FILENAME);
-
 		try {
-			ImageIO.write(asti.doIt(inFile), "png", new File(FILENAME.substring(0, (FILENAME.length()-4)) + ".png"));
-		} catch (Exception ex) {
-			System.out.println(ex);
-			ex.printStackTrace();
+			videoToImages();
+			imageToASCII.imageToASC(images.get(0));
+		} catch (IOException e) {
+			e.printStackTrace();
 
+		}
+		
+		int cores = Runtime.getRuntime().availableProcessors();
+		for (int x = 0; x < cores; x++)
+		{
+			MultiThread object = new MultiThread();
+			object.start();
 		}
 	}
 	
-	public void videoToImages()
+	public static void videoToImages() throws Exception
 	{
-		// while()
-		// {
-		// 	Java2DFrameConverter c = new Java2DFrameConverter;
-		// 	c.convert(g.grab());
-		// 	if(c == null)
-		// 		break;
-		// }
+		FFmpegFrameGrabber g = new FFmpegFrameGrabber("C:\\Users\\Beni\\workspace\\Vid2Asc\\src\\Objects\\video.mp4");
+		g.setFormat("");
+		g.start();
+		while(true)
+		{
+			Java2DFrameConverter c = new Java2DFrameConverter();
+			Frame currFrame = g.grab();
+			if(currFrame == null)
+				break;
+			BufferedImage curr = c.convert(currFrame);
+			images.add(curr);
+		}
+		g.stop();
+		g.close();
 	}
 
 }
