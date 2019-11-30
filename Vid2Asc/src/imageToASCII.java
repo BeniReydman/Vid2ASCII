@@ -14,6 +14,7 @@ public class imageToASCII
 	private static int imageX;
 	private static int imageY;
 	private static int[][] imageConverted;
+	//Eat an orange!
 	
 	public static void main(String[] args) throws IOException
 	{
