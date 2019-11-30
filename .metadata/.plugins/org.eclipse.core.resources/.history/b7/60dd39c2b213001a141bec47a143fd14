@@ -3,7 +3,6 @@ import java.awt.image.DataBufferByte;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.File;
 
 public class imageToASCII
 {
@@ -12,7 +11,12 @@ public class imageToASCII
 	private static int[][] imageConverted;
 	//Eat an orange!
 	
-	public static File imageToASC(BufferedImage image) throws IOException
+	public static void main(String[] args) throws IOException
+	{
+		
+	}
+	
+	public static void imageToASC(BufferedImage image) throws IOException
 	{
 		convertToGrey(image);
 		int wD = 280;
@@ -57,11 +61,10 @@ public class imageToASCII
 		
 		
 		//System.out.print(superAwesomeAscii);
+		
 		String FILENAME = ".\\output\\orange.txt";
-		File outputFile = null;
 		try {
-			outputFile = new File(FILENAME);
-			BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME));
 			String superAwesomeAscii = "";
 			for(int y = 0; y < wD; y++)
 			{
@@ -77,11 +80,11 @@ public class imageToASCII
 			System.out.println("Done");
 
 		} catch (IOException e) {
+
 			e.printStackTrace();
 
 		}
 		
-		return outputFile;
 	}
 	
 	public static char getAscii(int rgbVal)
