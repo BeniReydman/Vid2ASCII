@@ -15,8 +15,8 @@ public class imageToASCII
 	public static File imageToASC(BufferedImage image) throws IOException
 	{
 		convertToGrey(image);
-		int wD = 280;
-		int hT = 612;
+		int wD = 65;
+		int hT = 154;
 		int width = imageX / wD;
 		int height = imageY / hT;
 		int avg = width * height;
@@ -57,7 +57,7 @@ public class imageToASCII
 		
 		
 		//System.out.print(superAwesomeAscii);
-		String FILENAME = ".\\output\\test.txt";
+		String FILENAME = ".\\output\\currFile.txt";
 		File outputFile = null;
 		try {
 			outputFile = new File(FILENAME);
