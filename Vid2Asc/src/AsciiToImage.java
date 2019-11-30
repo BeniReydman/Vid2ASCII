@@ -33,8 +33,8 @@ public class AsciiToImage {
         int lines = 1;
         while(fileIn.readLine() != null)
             lines++;
-        
         fileIn.reset();
+
         System.out.println(lines + " input lines to read!");
         BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = img.createGraphics();
@@ -45,12 +45,16 @@ public class AsciiToImage {
         int charHeight = fm.getAscent()-2;
         g2d.dispose();
         System.out.println("Creating output image of size " + charWidth * testLength.length() + " x " + charHeight*lines);
+        System.out.println("From input .txt " + lines + " x " + testLength.length());
+        System.out.println("Total pixels: " + (charWidth * testLength.length())*(charHeight*lines));
 
-        img = new BufferedImage(charWidth * testLength.length(), charHeight * lines, BufferedImage.TYPE_INT_ARGB);
+        img = new BufferedImage(charWidth * testLength.length(), charHeight * lines, BufferedImage.TYPE_INT_RGB);
+
         g2d = img.createGraphics();
         g2d.setFont(font);
-        fm = g2d.getFontMetrics();
         g2d.setColor(Color.WHITE);
+        g2d.fillRect(0, 0, (charWidth * testLength.length()), (charHeight*lines));
+        g2d.setColor(Color.BLACK);
 
         String inputLine = fileIn.readLine();
         float totalLines = lines;
@@ -62,6 +66,7 @@ public class AsciiToImage {
             lines++;
             inputLine = fileIn.readLine();
         }
+        System.out.println("\nFinishing writing to file...");
         g2d.dispose();
         fileIn.close();
         return img;

@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Debug (Launch) with Arguments Prompt",
+            "request": "launch",
+            "mainClass": "",
+            "args": "${--max-old-space-size=4096}"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Start",
+            "request": "launch",
+            "mainClass": "Start",
+            "projectName": "Vid2Asc"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
