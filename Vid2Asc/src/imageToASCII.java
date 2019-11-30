@@ -1,13 +1,8 @@
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-
-import javax.imageio.ImageIO;
 
 public class imageToASCII
 {
@@ -18,12 +13,12 @@ public class imageToASCII
 	
 	public static void main(String[] args) throws IOException
 	{
-		imageToASC();
+		
 	}
 	
-	public static void imageToASC() throws IOException
+	public static void imageToASC(BufferedImage image) throws IOException
 	{
-		convertToGrey();
+		convertToGrey(image);
 		int wD = 280;
 		int hT = 612;
 		int width = imageX / wD;
@@ -67,7 +62,7 @@ public class imageToASCII
 		
 		//System.out.print(superAwesomeAscii);
 		
-		String FILENAME = "c:\\Users\\Beni\\workspace\\Vid2Asc\\output\\orange.txt";
+		String FILENAME = ".\\output\\orange.txt";
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME));
 			String superAwesomeAscii = "";
@@ -81,7 +76,7 @@ public class imageToASCII
 				superAwesomeAscii += '\n';
 				bw.write(superAwesomeAscii);
 			}
-
+			bw.close();
 			System.out.println("Done");
 
 		} catch (IOException e) {
@@ -119,33 +114,22 @@ public class imageToASCII
         return str;
 	}
 	
-	public static BufferedImage convertToGrey() throws IOException
+	public static BufferedImage convertToGrey(BufferedImage image) throws IOException
 	{
-		BufferedImage image = null;
 		imageConverted = null;
-		
-		// Attempt to read image and change to greyscale
-		try
+
+		if (image == null)
 		{
-			// Read in Image
-			image = ImageIO.read(imageToASCII.class.getResource("/Objects/orange.jpg"));
-			
-			if(image == null)
-			{
-				System.out.println("you done goofed up getting image");
-				return null;
-			}
-			imageConverted = convertTo2D(image);
-			if(imageConverted == null)
-			{
-				System.out.println("you done goofed up converting");
-				return null;
-			}
-		} catch (IOException e)
-		{
-			e.printStackTrace();
+			System.out.println("you done goofed up getting image");
+			return null;
 		}
-		
+		imageConverted = convertTo2D(image);
+		if (imageConverted == null)
+		{
+			System.out.println("you done goofed up converting");
+			return null;
+		}
+
 		// Convert image to 2d array of int rgb values
 		int x = imageConverted.length;
 		int y = imageConverted[0].length;
