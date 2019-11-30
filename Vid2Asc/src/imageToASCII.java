@@ -23,8 +23,8 @@ public class imageToASCII
 	public static void imageToASC() throws IOException
 	{
 		convertToGrey();
-		int wD = 150;
-		int hT = 280;
+		int wD = 280;
+		int hT = 612;
 		int width = imageX / wD;
 		int height = imageY / hT;
 		int avg = width * height;
@@ -72,10 +72,7 @@ public class imageToASCII
 			}
 			superAwesomeAscii += '\n';
 		}
-		//superAwesomeAscii += "```";
-		
-		//channel.sendMessage(superAwesomeAscii);
-		System.out.print(superAwesomeAscii);
+		//System.out.print(superAwesomeAscii);
 		
 		String FILENAME = "c:\\Users\\Beni\\workspace\\Vid2Asc\\output\\orange.txt";
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME))) {
