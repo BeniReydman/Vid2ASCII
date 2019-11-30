@@ -25,8 +25,8 @@ public class AsciiToImage {
 
     public AsciiToImage(){}
 
-    public BufferedImage doIt(File inFile) throws Exception{
-        System.out.println("Beginning the read!");
+    public static BufferedImage doIt(File inFile) throws Exception{
+//        System.out.println("Beginning the read!");
         BufferedReader fileIn = new BufferedReader(new FileReader(inFile));
         fileIn.mark(40000000);
         String testLength = fileIn.readLine();
@@ -39,7 +39,7 @@ public class AsciiToImage {
             lines++;
         fileIn.reset();
 
-        System.out.println(lines + " input lines to read!");
+//        System.out.println(lines + " input lines to read!");
         BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = img.createGraphics();
         Font font = new Font("Monospaced", Font.PLAIN, 12);
@@ -48,9 +48,9 @@ public class AsciiToImage {
         int charWidth = fm.stringWidth("#");
         int charHeight = fm.getAscent()-2;
         g2d.dispose();
-        System.out.println("Creating output image of size " + charWidth * testLength.length() + " x " + charHeight*lines);
-        System.out.println("From input .txt " + lines + " x " + testLength.length());
-        System.out.println("Total pixels: " + (charWidth * testLength.length())*(charHeight*lines));
+//        System.out.println("Creating output image of size " + charWidth * testLength.length() + " x " + charHeight*lines);
+//        System.out.println("From input .txt " + lines + " x " + testLength.length());
+//        System.out.println("Total pixels: " + (charWidth * testLength.length())*(charHeight*lines));
 
         img = new BufferedImage(charWidth * testLength.length(), charHeight * lines, BufferedImage.TYPE_INT_RGB);
 
@@ -65,12 +65,12 @@ public class AsciiToImage {
         lines = 1;
 
         while(inputLine != null) {
-            System.out.print("\b\b\b" + (int)(lines*100.0/totalLines) + "%");
+//            System.out.print("\b\b\b" + (int)(lines*100.0/totalLines) + "%");
             g2d.drawString(inputLine, 0, charHeight*lines);
             lines++;
             inputLine = fileIn.readLine();
         }
-        System.out.println("\nFinishing writing to file...");
+//        System.out.println("\nFinishing writing to file...");
         g2d.dispose();
         fileIn.close();
         return img;
