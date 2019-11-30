@@ -97,6 +97,7 @@ public class imageToASCII
 	{
 		char str;
 		
+		//TODO: Change from static to dynamic, so we can set a font and it'll output against that.
         if (rgbVal <= 20.0) {
             str = '@';
         } else if (rgbVal <= 55.0) {
@@ -153,9 +154,9 @@ public class imageToASCII
 		imageY = y;
 		System.out.println("int x: " + x + "\nint y: " + y);
 		BufferedImage toSend = intToImg(imageConverted);
-		ByteArrayOutputStream os = new ByteArrayOutputStream();
-		ImageIO.write(toSend,"jpeg", os);
-		InputStream is = new ByteArrayInputStream(os.toByteArray());
+		// ByteArrayOutputStream os = new ByteArrayOutputStream();
+		// ImageIO.write(toSend,"jpeg", os);
+		// InputStream is = new ByteArrayInputStream(os.toByteArray());
 		//channel.sendFile("", is, "result.jpeg");
 		return toSend;
 	}
