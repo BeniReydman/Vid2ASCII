@@ -12,10 +12,11 @@ public class Start
 	static ArrayList<File> files = new ArrayList<File>();
 	static ArrayList<BufferedImage> images = new ArrayList<BufferedImage>();
 	
-	public static void main(String[] args)
+	public static void main(String[] args) 
 	{
 		try {
 			videoToImages();
+			imageToASCII.imageToASC(images.get(0));
 		} catch (IOException e) {
 			e.printStackTrace();
 
