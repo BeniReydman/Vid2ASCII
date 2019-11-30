@@ -9,15 +9,22 @@ import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 
-import Discord.API.CommandProccessor;
-
 public class imageToASCII
 {
-	public static void imageToASCII() throws IOException
+	private static int imageX;
+	private static int imageY;
+	private static int[][] imageConverted;
+	
+	public static void main(String[] args) throws IOException
+	{
+		imageToASC();
+	}
+	
+	public static void imageToASC() throws IOException
 	{
 		convertToGrey();
-		int wD = 280;
-		int hT = 950;
+		int wD = 150;
+		int hT = 280;
 		int width = imageX / wD;
 		int height = imageY / hT;
 		int avg = width * height;
@@ -70,7 +77,7 @@ public class imageToASCII
 		//channel.sendMessage(superAwesomeAscii);
 		System.out.print(superAwesomeAscii);
 		
-		String FILENAME = "c:\\Users\\Beni\\workspace\\DiscordBot\\src\\Objects\\sanchez.txt";
+		String FILENAME = "c:\\Users\\Beni\\workspace\\Vid2Asc\\output\\orange.txt";
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME))) {
 
 			bw.write(superAwesomeAscii);
@@ -120,7 +127,7 @@ public class imageToASCII
 		try
 		{
 			// Read in Image
-			image = ImageIO.read(CommandProccessor.class.getResource("/Objects/luis.jpg"));
+			image = ImageIO.read(imageToASCII.class.getResource("/Objects/orange.jpg"));
 			
 			if(image == null)
 			{
@@ -151,6 +158,7 @@ public class imageToASCII
 		//channel.sendFile("", is, "result.jpeg");
 		return toSend;
 	}
+	
 	private static BufferedImage intToImg(int[][] pixels)
 	{
 		int width = pixels[0].length;
