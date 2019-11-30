@@ -64,21 +64,23 @@ public class imageToASCII
 			loopCount++;
 		}
 		
-		String superAwesomeAscii = "";
-		for(int y = 0; y < wD; y++)
-		{
-			for(int x = 0; x < hT; x++)
-			{
-				superAwesomeAscii += asciiPrint[x][y];
-			}
-			superAwesomeAscii += '\n';
-		}
+		
 		//System.out.print(superAwesomeAscii);
 		
 		String FILENAME = "c:\\Users\\Beni\\workspace\\Vid2Asc\\output\\orange.txt";
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME))) {
-
-			bw.write(superAwesomeAscii);
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME));
+			String superAwesomeAscii = "";
+			for(int y = 0; y < wD; y++)
+			{
+				superAwesomeAscii = "";
+				for(int x = 0; x < hT; x++)
+				{
+					superAwesomeAscii += asciiPrint[x][y];
+				}
+				superAwesomeAscii += '\n';
+				bw.write(superAwesomeAscii);
+			}
 
 			System.out.println("Done");
 
