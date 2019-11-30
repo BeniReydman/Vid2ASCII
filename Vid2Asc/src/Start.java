@@ -14,5 +14,16 @@ public class Start
 			object.start();
 		}
 	}
+	
+	public void videoToImages()
+	{
+		while()
+		{
+			Java2DFrameConverter c = new Java2DFrameConverter;
+			c.convert(g.grab());
+			if(c == null)
+				break;
+		}
+	}
 
 }
