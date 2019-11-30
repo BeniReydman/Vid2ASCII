@@ -30,6 +30,10 @@ public class AsciiToImage {
         BufferedReader fileIn = new BufferedReader(new FileReader(inFile));
         fileIn.mark(40000000);
         String testLength = fileIn.readLine();
+
+        if(testLength.length() == 0)
+            throw new Exception("Input file must have some text in it.");
+
         int lines = 1;
         while(fileIn.readLine() != null)
             lines++;
