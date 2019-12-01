@@ -2,6 +2,8 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import org.bytedeco.javacpp.*;
+import org.bytedeco.ffmpeg.global.avutil;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.bytedeco.javacv.FFmpegFrameRecorder;
 import org.bytedeco.javacv.Frame;
@@ -55,6 +57,8 @@ public class Start
 			if(currFrame == null)
 				break;
 			BufferedImage curr = c.convert(currFrame);
+			if (curr == null)
+				continue;
 			images.add(curr);
 		}
 		g.stop();
@@ -73,7 +77,7 @@ public class Start
 			if(images.get(i) == null)
 				continue;
         	Frame curr = c.convert(images.get(i));
-            recorder.record(curr);
+            recorder.record(curr, avutil.AV_PIX_FMT_RGB32_1);
         }
         recorder.stop();
         recorder.close();
