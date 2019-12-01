@@ -15,8 +15,8 @@ public class imageToASCII
 	public static File imageToASC(BufferedImage image) throws IOException
 	{
 		convertToGrey(image);
-		int wD = 65;
-		int hT = 154;
+		int wD = 130;
+		int hT = 308;
 		int width = imageX / wD;
 		int height = imageY / hT;
 		int avg = width * height;
