@@ -10,14 +10,14 @@
             "request": "launch",
             "mainClass": "Start",
             "projectName": "Vid2Asc",
-            "args": "-Xmx4G"
+            "vmArgs": "-Xmx8G"
         },
         {
             "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}",
-            "args": "-Xmx4G"
+            "vmArgs": "-Xmx8G"
         },
         {
             "type": "java",

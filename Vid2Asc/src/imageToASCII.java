@@ -74,7 +74,7 @@ public class imageToASCII
 				bw.write(superAwesomeAscii);
 			}
 			bw.close();
-			System.out.println("Done");
+			// System.out.println("Done Img to ASCII");
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -132,7 +132,7 @@ public class imageToASCII
 		int y = imageConverted[0].length;
 		imageX = x;
 		imageY = y;
-		System.out.println("int x: " + x + "\nint y: " + y);
+		// System.out.println("int x: " + x + "\nint y: " + y);
 		BufferedImage toSend = intToImg(imageConverted);
 		// ByteArrayOutputStream os = new ByteArrayOutputStream();
 		// ImageIO.write(toSend,"jpeg", os);
