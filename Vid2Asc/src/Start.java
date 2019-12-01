@@ -48,7 +48,7 @@ public class Start
 	public static void videoToImages() throws Exception
 	{
 		FFmpegFrameGrabber g = new FFmpegFrameGrabber("C:\\Users\\Beni\\workspace\\Vid2Asc\\src\\Objects\\video.mp4");
-		g.setFormat("");
+		g.setFormat("mp4");
 		g.start();
 		while(true)
 		{
@@ -69,7 +69,7 @@ public class Start
 	{
 		Java2DFrameConverter c = new Java2DFrameConverter();
 		FFmpegFrameRecorder recorder;
-		recorder = new FFmpegFrameRecorder("C:\\Users\\Beni\\workspace\\Vid2Asc\\src\\Objects\\newVideo.mp4", 1280, 720);
+		recorder = new FFmpegFrameRecorder("C:\\Users\\Beni\\workspace\\Vid2Asc\\src\\Objects\\newVideo.mp4", 3840, 2160);
         recorder.setFormat("mp4");
         recorder.setFrameRate(30);
         recorder.start();
